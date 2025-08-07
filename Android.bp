@@ -974,7 +974,6 @@ cc_defaults {
     name: "skia_deps",
     shared_libs: [
         "libandroidicu",
-        "libdng_sdk",
         "libexpat",
         "libft2",
         "libjpeg",
@@ -993,6 +992,7 @@ cc_defaults {
     target: {
       android: {
         shared_libs: [
+            "libdng_sdk",
             "libcutils",
             "libEGL",
             "libGLESv2",
@@ -1007,15 +1007,19 @@ cc_defaults {
       host: {
         static_libs: [
           "libcutils",
+          "libdng_sdk",
         ],
       },
       darwin: {
         host_ldlibs: [
             "-framework AppKit",
         ],
+        static_libs: [
+            "libdng_sdk",
+        ],
       },
       windows: {
-        enabled: true,
+        enabled: false,
         host_ldlibs: [
             "-lgdi32",
             "-loleaut32",
